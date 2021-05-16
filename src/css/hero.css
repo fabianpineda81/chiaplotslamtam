@@ -1,0 +1,44 @@
+.hero{
+    margin-top: 10vh;
+}
+.contenedor_hero{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.texto_hero{
+    width: 69%;
+    
+    font-size: 4.4em;
+    margin: 0;
+    color:#3AAC59;
+    font-weight: bolder;
+}
+
+.contenedor_imagen_hero{
+    width: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.imagen_hero{
+    width: 75%;
+}
+
+.texto_hero_resaltado{
+  color:    #004C3F;
+}
+.hero_descripcion_texto{
+    width: 82%;
+    color: #004C3F;
+    font-weight: bold;
+    font-size: 1.25em;
+    line-height: 2em;
+    margin-bottom: 5vh;
+}
+
+.contenedor_hero_descripcion{
+    margin-top: 7vh;
+    
+}
