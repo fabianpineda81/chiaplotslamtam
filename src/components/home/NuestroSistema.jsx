@@ -44,7 +44,7 @@ function NuestroSistema() {
 
 
     return (
-        <div className="contendor_nuestro_sistema">
+        <div className="contendor_nuestro_sistema" name="about" id="about">
             <div className="contenedor">
                 <div className="nuestro_sistema_contenedor_titulo">
 

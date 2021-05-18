@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react'
 import Hero from './Hero'
 import NuestroSistema from './NuestroSistema'
+import Precio from './Precio'
 
 function Home() {
     
@@ -9,6 +10,7 @@ function Home() {
         <Fragment>
             <Hero/>
             <NuestroSistema/>
+            <Precio/>
         
         </Fragment>
         

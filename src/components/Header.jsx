@@ -14,8 +14,8 @@ function Header() {
 
                     <ol>
                         <li><Link className="link_header" to="/">Home</Link></li>
-                        <li><Link className="link_header" to="/about">About</Link></li>
-                        <li><Link className="link_header" to="/about" >Ours Pricing</Link></li>
+                        <li><a className="link_header" href="#about">About</a></li>
+                        <li><a className="link_header" href="#Pricing" >Ours Pricing</a></li>
                     </ol>
                    
 
@@ -25,8 +25,8 @@ function Header() {
 
                 <nav className="menu">
                     <ol>
-                        <li> <Link className="botones_pagina_header">Login</Link></li>
-                        <li><Link className="botones_pagina_header">Sing Up</Link></li>
+                        <li> <Link className="botones_pagina_header" to="/login">Login</Link></li>
+                        <li><Link className="botones_pagina_header" to="/signUp">Sing Up</Link></li>
                         
                     </ol>
                     

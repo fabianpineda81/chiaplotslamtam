@@ -1,0 +1,62 @@
+.precio{
+    background: #D5E5B5;
+    width: 30%;
+    padding: 3vw;
+    border-radius: 3em;
+    min-height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    
+}
+
+.contenedor_precios{
+    display: flex;
+    justify-content: center;
+}
+.precio_precio{
+    color: #004C3F;
+    font-size: 5vw;
+    font-weight: bold;
+    width: 100%;
+    text-align: center;
+    margin: 0 auto;
+}
+.precio_contenedor_boton_comprar{
+    display: flex;
+    justify-content: center;
+}
+.boton_comprar{
+    padding-left: 3vw;
+    padding-right: 3vw;
+}
+
+.precio_contenedor_item{
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #004C3F;
+    
+}
+
+.precio_titulo_item{
+    font-size: .9em;
+    color: #004C3F;
+}
+.precio_descripcion_item{
+    color: #004C3F;  
+    font-size: 1.2em; 
+}
+.contenedor_titulo_precios{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.titulo_precios{
+    font-size: 5vw;
+    color: #3AAC59;
+    font-weight: bolder;
+    margin: 5vh 0;
+    
+}
+
