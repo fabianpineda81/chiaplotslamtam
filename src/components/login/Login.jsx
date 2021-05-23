@@ -3,18 +3,13 @@ import React,{useState} from 'react'
 import './../../css/Login.css'
 import FormularioLogin from './FormularioLogin'
 import FormularioRegistro from './FormularioRegistro'
+import 'moment/locale/es'
 
 function Login({log}) {
     const [login, setlogin] = useState(log)
-    const to_login=async(e)=>{
-        e.preventDefault()
-        alert("login")
-    }
+   
 
-    const registrar=async(e)=>{
-        e.preventDefault()
-        alert("registrar")
-    }
+   
     return (
         
 

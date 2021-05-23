@@ -1,5 +1,6 @@
 import React, {  useCallback, useState } from 'react'
 import SelectZonaHoraria from './SelectZonaHoraria'
+
 import {auth,db} from './../../Firebase'
 import { useHistory } from 'react-router'
 
@@ -60,7 +61,7 @@ function FormularioRegistro({login,setlogin}) {
                 seterror(error.message)
             }
         }
-    ,[correo,contra,contra2])
+    ,[correo,contra,history,zonahoraria])
 
 
 

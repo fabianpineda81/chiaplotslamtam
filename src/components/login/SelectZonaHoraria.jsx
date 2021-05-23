@@ -1,9 +1,9 @@
 import React from 'react'
 
-function SelectZonaHoraria({zonahoraria,setzonahoraria}) {
+function SelectZonaHoraria({zonahoraria,setzonahoraria,classname}) {
     return (
         
-        <select className="form-select mb-3" placeholder="Time zone" onChange={(e)=>{setzonahoraria(e.target.value)}} ><option value="" label=" "></option>
+        <select name="zonaHoraria" className={`form-select mb-3  ${classname}`}  placeholder="Time zone" onChange={setzonahoraria} ><option value="" label=" "></option>
         <option value="International Date Line West">(GMT-12:00) International Date Line West</option>
         <option value="American Samoa">(GMT-11:00) American Samoa</option>
         <option value="Midway Island">(GMT-11:00) Midway Island</option>

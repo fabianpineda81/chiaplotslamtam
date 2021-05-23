@@ -1,6 +1,7 @@
 import firebase from 'firebase/app'
 import 'firebase/firestore'
 import 'firebase/auth'
+import 'firebase/storage'
 const firebaseConfig = {
     apiKey: "AIzaSyDyRrEUvLF4EacH0IIEgGW_WOYiusJ7qG0",
     authDomain: "chia-explots.firebaseapp.com",
@@ -13,6 +14,7 @@ const firebaseConfig = {
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
   const db= firebase.firestore()
+  const storage= firebase.storage()
   const auth=firebase.auth()
 
-  export {db,auth}
+  export {db,auth,storage}
