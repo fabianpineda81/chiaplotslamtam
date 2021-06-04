@@ -1,5 +1,5 @@
 import React from 'react'
-import signoMas from './../../imagenes/signo_mas.svg'
+import signoMas from './../../../imagenes/signo_mas.svg'
 function Orders() {
     return (
         /* este es el contenedor pricipal este puede tener mas de un hijo */

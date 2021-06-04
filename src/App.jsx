@@ -6,9 +6,10 @@ import Home from './components/home/Home'
 import Footer from './components/Footer'
 import Login from './components/login/Login';
 import ScrollToTop from './components/ScrollToTop';
-import Dashboard from './components/dashboard/Dashboard';
+import Dashboard from './components/dashboard/dashboard2/Dashboard';
 import {auth} from './Firebase'
 import { useState,useEffect } from 'react';
+import administracion from "./components/administracion/Administracion";
 
 function App() {
   
@@ -38,8 +39,10 @@ function App() {
             <Login log={false}/>
           </Route>
           
-          <Route path="/dashboard" firebaseUser={firebaseUser} component={Dashboard}/>
-
+          <Route path="/dashboard" >
+            <Dashboard firebaseUser={firebaseUser} administracion={false}/>
+          </Route>
+          <Route path="/admin" component={administracion}/>
           <Route path="/" >
               <Header/>
               <Home/>

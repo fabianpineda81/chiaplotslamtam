@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import './../../css/Precio.css'
 
-function Precio() {
+function Precio({configuraciones}) {
     return (
         <div className="contenedor" id="Pricing">
             <div className="contenedor_titulo_precios">
@@ -11,18 +11,18 @@ function Precio() {
             <div className="contenedor_precios">
                 <div className="precio">
                     <div className="precio_contenedor_item">
-                    <p className="precio_precio">$10</p>
+                    <p className="precio_precio">{`$${configuraciones.precioPlots}`}</p>
 
                     </div>
                     
                     <div className="precio_contenedor_item">
                         <p className="precio_titulo_item">tamaño</p>
-                        <p className="precio_descripcion_item">32(108,9 GB)</p>
+                        <p className="precio_descripcion_item">32 ({configuraciones.tamañoPlots}GB)</p>
                     </div>
                     
                     <div className="precio_contenedor_item">
                         <p className="precio_titulo_item">Limite de descargas</p>
-                        <p className="precio_descripcion_item">3 veces</p>
+                        <p className="precio_descripcion_item">{configuraciones.LimiteDescargas} veces</p>
                     </div>
                     
                     <div className="precio_contenedor_item">
@@ -32,7 +32,7 @@ function Precio() {
                     
                     <div className="precio_contenedor_item">
                         <p className="precio_titulo_item">Ubicaciones</p>
-                        <p className="precio_descripcion_item">US</p>
+                        <p className="precio_descripcion_item">{configuraciones.Ubucaciones}</p>
                     </div>
                     
                     <div className="precio_contenedor_boton_comprar">
