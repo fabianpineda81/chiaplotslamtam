@@ -22,7 +22,7 @@ function VistaOrden({orden,volver,ordenPendiente}) {
             </div>
             <div className="item_orden">
                 <p className="item_orden_titulo">Fecha</p>
-                <p className="item_orden_valor">{ moment(orden.fecha).format('MMMM Do YYYY, h:mm:ss a') }</p>
+                <p className="item_orden_valor">{ moment(orden.fecha_compra).format('MMMM Do YYYY, h:mm:ss a') }</p>
             </div>
             <div className="item_orden">
                 <p className="item_orden_titulo">Estado </p>

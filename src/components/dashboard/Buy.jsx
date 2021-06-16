@@ -12,7 +12,7 @@ import ModalConfirmarCompra from './ModalConfirmarCompra';
 
 
 
-function Buy({user}) {
+function Buy({user,setop}) {
    
     const [showModalCarga, setshowModalCarga] = useState(false)
     const [toPago, settoPago] = useState(false)
@@ -51,13 +51,16 @@ function Buy({user}) {
             console.log(compra)
             compra={
                 ...compra,
-                fecha: Date.now()
+                fecha_compra: Date.now(),
+                fecha_entrega: null,
             }
         console.log("email",user.email) 
         const data = await db.collection("usuarios").doc(user.email).collection("ordenes").add(compra)
         
         console.log("tarea enviada",data.id)
         setporcentajeCarga(100)
+        
+
         } catch (error) {
             console.log(error)
         }
@@ -90,6 +93,7 @@ function Buy({user}) {
                     settoPago={settoPago} />
             )}
             <ModalCarga
+            setop={setop}
             showModalCarga={showModalCarga}
             setshowModalCarga={setshowModalCarga}
             porcentajeCarga={porcentajeCarga}

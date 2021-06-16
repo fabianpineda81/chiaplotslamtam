@@ -5,15 +5,20 @@ import InformacionOrden from './InformacionOrden'
 import TerminarOrden from './TerminarOrden'
 import {db} from './../../Firebase'
 
-function VistaOrdenAdmin({ orden, mostrarOrden, volver, ordenPendiente }) {
+
+
+function VistaOrdenAdmin({ orden, mostrarOrden, volver, ordenPendiente,ordenBajar,bajarOrden }) {
     const [terminarOrden, setterminarOrden] = useState(false)
+    
     const CompletarOrden=async(link)=>{
         
       try {
         await db.collection("usuarios").doc(orden.userEmail).collection("ordenes").doc(orden.id).update({
             codigoEstado:1,
             linkParcela:link,
-            visto:true
+            visto:true,
+            fecha_entrega:Date.now(),
+            estato:"entragada"
         })  
         volver()
 
@@ -29,13 +34,15 @@ function VistaOrdenAdmin({ orden, mostrarOrden, volver, ordenPendiente }) {
 
             {
                 terminarOrden === true ? (
-                   <TerminarOrden CompletarOrden={CompletarOrden} setterminarOrden={setterminarOrden}/>
+                   <TerminarOrden CompletarOrden={CompletarOrden}  setterminarOrden={setterminarOrden}/>
                 ) : (
                     <InformacionOrden
                         volver={volver}
                         orden={orden}
                         ordenPendiente={ordenPendiente}
+                        ordenBajar={ordenBajar}
                         setterminarOrden={setterminarOrden}
+                        bajarOrden={bajarOrden}
                     />
                 )
             }

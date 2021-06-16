@@ -1,6 +1,6 @@
 import React from 'react'
 
-function MenuAdministracio({ setop, logOut,cantidadOrdenesNuevas,cantidadOrdenesPendientes }) {
+function MenuAdministracio({ setop, logOut,cantidadOrdenesNuevas,cantidadOrdenesPendientes,cantidadOrdenesBajar }) {
 
    
 
@@ -19,6 +19,9 @@ function MenuAdministracio({ setop, logOut,cantidadOrdenesNuevas,cantidadOrdenes
             </li>
             <li >
                 <button className="botones_menu_dashboard" onClick={() => { setop("admin_todas_ordenes") }}>Todas las ordenes</button>
+            </li>
+            <li >
+                <button className="botones_menu_dashboard" onClick={() => { setop("admin_bajar_ordenes") }}>Bajar ordenes <span className="notificacion_numero"> {cantidadOrdenesBajar}</span></button>
             </li>
             <li >
                 <button className="botones_menu_dashboard" onClick={() => { setop("opciones_generales_admin") }}>Opciones Generales</button>

@@ -79,6 +79,7 @@ function Administracion() {
             async function hola() {
                 if (auth.currentUser) {
                     const informacionUsuario = await buscarInformacionUsuario()
+                    console.log(informacionUsuario)
                     if (informacionUsuario.rol === 1) {
                         console.log("es administrador")
                         buscarOrdenes()

@@ -2,7 +2,7 @@ import React from 'react'
 import { Fragment } from 'react'
 import { Modal,Button,ProgressBar} from 'react-bootstrap'
 
-function ModalCarga({setshowModalCarga,showModalCarga,porcentajeCarga}) {
+function ModalCarga({setshowModalCarga,showModalCarga,porcentajeCarga,setop}) {
     return (
         
         <Modal
@@ -30,7 +30,11 @@ function ModalCarga({setshowModalCarga,showModalCarga,porcentajeCarga}) {
             porcentajeCarga>=100?(
                 <Fragment>
                 <h3>Links habilitados en 24 horas</h3>
-                <Button variant="success"  disabled={porcentajeCarga>=100?false:true} onClick={()=>{setshowModalCarga(!showModalCarga)}}>
+                <Button variant="success"  disabled={porcentajeCarga>=100?false:true}
+                 onClick={()=>{
+                   setshowModalCarga(!showModalCarga)
+                   setop("pending_orders")
+                   }}>
                 Close
               </Button>
 

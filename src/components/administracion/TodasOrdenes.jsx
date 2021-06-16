@@ -1,14 +1,30 @@
 import React from 'react'
+import MostradorOrdenesAdmin from './MostradorOrdenesAdmin'
 
-function TodasOrdenes() {
+function TodasOrdenes({ordenes}) {
     return (
         <div className="contenedor_contenido" >
-            {/* este es el contenedor hijo (es que se pinta de blanco) este puede tener hermanos*/}
+        {/* este es el contenedor hijo (es que se pinta de blanco) este puede tener hermanos*/}
 
-            <div className="contenedor_blanco">
-            <h3 className="titulo_contenido">Todas las ordenes</h3>
-            </div>
+        <div  className={ordenes.length>0?("contenedor_blanco"):("contenedor_blanco contenedor_verde")}>
+        <h3 className="titulo_contenido">Todas las ordenes</h3>
+        {
+                ordenes.length>0?(
+                    <MostradorOrdenesAdmin 
+                    ordenPendiente={false}
+                    ordenNueva={false}
+                    ordenBajar={false}
+                    ordenes={ordenes}/>
+                ):(
+                    <div className="contendor_mensaje">
+                        <p className="mensaje">
+                            NOT DATA
+                        </p>
+                    </div>
+                )
+            }
         </div>
+    </div>
     )
 }
 

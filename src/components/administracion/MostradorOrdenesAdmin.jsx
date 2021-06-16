@@ -4,9 +4,24 @@ import OrdenAdmin from './OrdenAdmin'
 import VistaOrdenAdmin from './VistaOrdenAdmin'
 import {db} from './../../Firebase'
 
-function MostradorOrdenesAdmin({ordenes,ordenPendiente,ordenNueva}) {
+function MostradorOrdenesAdmin({ordenes,ordenPendiente,ordenNueva,ordenBajar,buscarOrdenesAdmin}) {
     
     const [ordenActual, setordenActual] = useState(null)
+
+    const bajarOrden=async()=>{
+        await db.collection("usuarios").doc(ordenActual.userEmail).collection("ordenes").doc(ordenActual.id).update({
+            linkParcela:null,
+            codigoEstado:3,
+            estado:"bajada"
+
+        })
+        alert("bajado correctamente")
+        buscarOrdenesAdmin()
+        volver()
+    }
+
+
+
     const mostrarOrden= (orden)=>{
         if(ordenNueva===true){
             db.collection("usuarios").doc(orden.userEmail).collection("ordenes").doc(orden.id).update({
@@ -40,7 +55,12 @@ function MostradorOrdenesAdmin({ordenes,ordenPendiente,ordenNueva}) {
 
                 ):(
 
-                    <VistaOrdenAdmin volver={volver} ordenPendiente={ordenPendiente}  orden={ordenActual}/>
+                    <VistaOrdenAdmin 
+                    volver={volver} 
+                    ordenBajar={ordenBajar} 
+                    ordenPendiente={ordenPendiente}  
+                    orden={ordenActual}
+                    bajarOrden={bajarOrden}/>
                 )
                     
             }

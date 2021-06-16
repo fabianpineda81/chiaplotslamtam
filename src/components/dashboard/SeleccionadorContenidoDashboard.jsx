@@ -1,4 +1,5 @@
 import React from 'react'
+import AdminBajarOrdenes from '../administracion/AdminBajarOrdenes';
 import AdminOrdenesListas from '../administracion/AdminOrdenesListas';
 import AdminOrdenesNuevas from '../administracion/AdminOrdenesNuevas';
 import AdminOrdenesPendientes from '../administracion/AdminOrdenesPendientes';
@@ -9,7 +10,7 @@ import Orders from './ordenes/Orders'
 import PendingOrders from './ordenes/PendingOrders';
 import ReadyOrdes from './ordenes/ReadyOrdes';
 
-function SeleccionadorContenidoDashboard({op,user,ordenes,ordenesListas,ordenesPendientes,ordenesNuevas}) {
+function SeleccionadorContenidoDashboard({op,user,ordenes,ordenesListas,ordenesPendientes,ordenesNuevas,ordenesBajar,ordenesAdmin, buscarOrdenesAdmin,setop }) {
     switch(op){
         case "orders":
             return <Orders  user={user}/>
@@ -20,7 +21,7 @@ function SeleccionadorContenidoDashboard({op,user,ordenes,ordenesListas,ordenesP
              return <ReadyOrdes ordenes={ordenesListas} user={user}/>   
             
           case "buy":
-              return <Buy user={user} />   
+              return <Buy user={user} setop={setop}  />   
 
           case "pending_orders":
               return <PendingOrders ordenes={ordenesPendientes} user={user}/>   
@@ -35,10 +36,12 @@ function SeleccionadorContenidoDashboard({op,user,ordenes,ordenesListas,ordenesP
                 return <AdminOrdenesNuevas ordenes={ordenesNuevas}/>
 
         case "admin_todas_ordenes":
-            return <TodasOrdenes ordenes={ordenes}/>
+            return <TodasOrdenes ordenes={ordenesAdmin}/>
         case "opciones_generales_admin":
                return <OpcionesGenerales/>
-            
+
+         case "admin_bajar_ordenes":
+                   return <AdminBajarOrdenes ordenes={ordenesBajar}  buscarOrdenesAdmin={buscarOrdenesAdmin} />
 
          default :
         

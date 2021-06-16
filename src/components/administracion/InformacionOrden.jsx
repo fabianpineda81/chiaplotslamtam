@@ -2,7 +2,7 @@ import React from 'react'
 import moment from 'moment'
 import 'moment/locale/es'
 
-function InformacionOrden({orden, volver,ordenPendiente,setterminarOrden}) {
+function InformacionOrden({orden, volver,ordenPendiente,setterminarOrden,ordenBajar,bajarOrden}) {
     return (
         <div>
             <div className="contenedor_boton_volver">
@@ -22,7 +22,7 @@ function InformacionOrden({orden, volver,ordenPendiente,setterminarOrden}) {
             </div>
             <div className="item_orden">
                 <p className="item_orden_titulo">Fecha</p>
-                <p className="item_orden_valor">{ moment(orden.fecha).format('MMMM Do YYYY, h:mm:ss a') }</p>
+                <p className="item_orden_valor">{ moment(orden.fecha_compra).format('MMMM Do YYYY, h:mm:ss a') }</p>
             </div>
             <div className="item_orden">
                 <p className="item_orden_titulo">Estado </p>
@@ -38,10 +38,18 @@ function InformacionOrden({orden, volver,ordenPendiente,setterminarOrden}) {
                 <button  className="botones_pagina boton_voler" onClick={()=>{setterminarOrden(true)}}>Completar orden</button>
             </div>
                 ):(
+
+                 ordenBajar===true?(
+                    <div className="contenedor_boton_volver">
+                    <button  className="botones_pagina boton_voler" onClick={()=>{bajarOrden()}}>Bajar Orden</button>
+                </div>
+                 ):(
                     <div className="item_orden">
                     <p className="item_orden_titulo">Link parcela</p>
                     <p className="item_orden_valor"><a target="_blank" rel="noreferrer" href={orden.linkParcela}>Link</a></p>
                 </div>
+                 )   
+                    
                 )
             }
             

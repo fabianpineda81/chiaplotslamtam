@@ -7,6 +7,8 @@ import './../../../css/dashboard.css'
 import MenuAdministracio from './MenuAdministracio'
 import MenuCliente from './MenuCliente'
 import ImgRefresco from './../../../imagenes/ImagenRefresco.jpg'
+import moment from 'moment'
+import 'moment/locale/es'
 
 
 function Dashboard({administracion,ordenesAdmin,buscarOrdenesAdmin}) {
@@ -14,18 +16,34 @@ function Dashboard({administracion,ordenesAdmin,buscarOrdenesAdmin}) {
     const [ordenesNuevas, setordenesNuevas] = useState([])
     const [ordenesListas, setordenesListas] = useState([])
     const [ordenesPendientes, setordenesPendientes] = useState([])
+    const [ordenesBajar, setordenesBajar] = useState([])
     const [user, setuser] = useState(false)
     const history = useHistory()
     const [op, setop] = useState("buy")
+    
 
    
    
     const filtrarOrdenes = useCallback(
         () => {
 
-            let pendientes = ordenesAdmin.filter((orden) => (orden.codigoEstado !== 1))
-            let listas = ordenesAdmin.filter((orden) => (orden.codigoEstado !== 0))
+            let pendientes = ordenesAdmin.filter((orden) => (orden.codigoEstado === 0))
+            let listas = ordenesAdmin.filter((orden) => (orden.codigoEstado === 1))
             let arrayOrdenesNuevas = ordenesAdmin.filter(orden =>orden.visto===false)
+            let bajar= ordenesAdmin.filter(orden=>{
+                if(orden.fecha_entrega!==null){
+                   
+                    if(moment().diff(orden.fecha_entrega, 'days')===0 && orden.codigoEstado!==3){
+                            return orden 
+
+                    }
+
+                }
+                    return null 
+                
+            })
+            console.log("ordenes a bajar",bajar)
+            setordenesBajar(bajar)
             setordenesNuevas(arrayOrdenesNuevas)
             setordenesListas(listas)
             setordenesPendientes(pendientes)
@@ -130,7 +148,8 @@ function Dashboard({administracion,ordenesAdmin,buscarOrdenesAdmin}) {
                                 logOut={logOut} 
                                 cantidadOrdenesNuevas={ordenesNuevas.length}
                                 cantidadOrdenesPendientes={ordenesPendientes.length} 
-                                buscarOrdenesAdmin={buscarOrdenesAdmin} />
+                                cantidadOrdenesBajar={ordenesBajar.length}
+                               />
                             ):(
                                 <MenuCliente setop={setop} logOut={logOut} />
                             )
@@ -144,10 +163,14 @@ function Dashboard({administracion,ordenesAdmin,buscarOrdenesAdmin}) {
                 
                     <SeleccionadorContenidoDashboard 
                     ordenes={ordenes} 
+                    ordenesAdmin={ordenesAdmin}
                     ordenesListas={ordenesListas} 
                     ordenesPendientes={ordenesPendientes}
                     ordenesNuevas={ordenesNuevas}
+                    ordenesBajar={ordenesBajar}
                     user={user}  
+                    buscarOrdenesAdmin={buscarOrdenesAdmin}
+                    setop={setop}
                     op={op} />
                 </div>
                 </div>

@@ -15,7 +15,7 @@ function OrdenAdmin({orden,mostrarOrden}) {
                     </div>
                     <div className="item_orden_resumen ancho_40">
                         <p className="item_orden_titulo_resumen">fecha</p>
-                        <p className="item_orden_valor_resumen">{moment(orden.fecha).format('MMMM Do YYYY')}</p>
+                        <p className="item_orden_valor_resumen">{moment(orden.fecha_compra).format('MMMM Do YYYY')}</p>
                     </div>
                 </div>
                 <div className="contenedor_item_resumen">
