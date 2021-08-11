@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import SelectZonaHoraria from './../../login/SelectZonaHoraria'
+import SelectNombrepool from '../../login/SelectNombrePool'
 import { withStyles } from '@material-ui/core/styles';
 
 import Slider from '@material-ui/core/Slider';
@@ -130,7 +131,7 @@ function CrearOrden({ precio, settoPago, datos, setdatos, setshowModalCarga }) {
                             <PrettoSlider valueLabelDisplay="auto" aria-label="pretto slider" onChange={(e, n) => { calularSubtotal(n) }} defaultValue={5} min={5} />
                             <div className="buy_contenedor_indicadores">
                                 <p className="buy_indicador">Min 5</p>
-                                <p className="buy_indicador">Max 60</p>
+                                <p className="buy_indicador">Max 20</p>
                             </div>
                         </div>
                         <div className="contenedor_price">
@@ -140,6 +141,12 @@ function CrearOrden({ precio, settoPago, datos, setdatos, setshowModalCarga }) {
                             <p className="buy_indicador">
                                 {datos.subtotal} USD
                          </p>
+                        </div>
+                        
+                        <div className="buy_contenedor_nombre_pool">
+                            <p className="titulo_nombre_pool">Nombre de la pool</p>
+                            <SelectNombrepool classname="compra_input_select" nombrePool={datos.nombrepool} setnombrepool={actualizarDatos} />
+                            <small id="emailHelp" className="form-text text-muted descripcion_compra_input"></small>
                         </div>
 
                         <div className="buy_contenedor_zona_horaria">

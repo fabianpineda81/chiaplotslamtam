@@ -27,6 +27,7 @@ function Buy({user,setop}) {
         pullKey:"",
         subtotal:30,
         zonaHoraria:"bogota",
+        nombrePool:"ihpool",
         linkArchivo:"",
         numeroPlots:5,
         userEmail:user.email,

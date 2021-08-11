@@ -21,6 +21,7 @@ function ModalConfirmarCompra({settoPago,setshowModalConfirmar,showModalConfirma
         pullKey:"",
         subtotal:30,
         zonaHoraria:"bogota",
+        nombrePool:"ihpool",
         linkArchivo:"",
         numeroPlots:5
         subtotal, */}
@@ -30,6 +31,9 @@ function ModalConfirmarCompra({settoPago,setshowModalConfirmar,showModalConfirma
             <hr/>
             <div className="confirmar_titulo_dato">pullKey</div>
             <div className="confirmar_dato">{datos.pullKey}</div>
+            <hr/>
+            <div className="confirmar_titulo_dato">nombrePool</div>
+            <div className="confirmar_dato">{datos.nombrePool}</div>
             <hr/>
             <div className="confirmar_titulo_dato">zonaHoraria</div>
             <div className="confirmar_dato">{datos.zonaHoraria}</div>
