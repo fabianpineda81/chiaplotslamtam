@@ -128,7 +128,7 @@ function CrearOrden({ precio, settoPago, datos, setdatos, setshowModalCarga }) {
 
                         <div >
                             <p className="buy_titulo_slider">Number of plots to buy*</p>
-                            <PrettoSlider valueLabelDisplay="auto" aria-label="pretto slider" onChange={(e, n) => { calularSubtotal(n) }} defaultValue={5} min={5} />
+                            <PrettoSlider valueLabelDisplay="auto" aria-label="pretto slider" onChange={(e, n) => { calularSubtotal(n) }} defaultValue={5} min={5} max={20} />
                             <div className="buy_contenedor_indicadores">
                                 <p className="buy_indicador">Min 5</p>
                                 <p className="buy_indicador">Max 20</p>
