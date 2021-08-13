@@ -211,6 +211,39 @@ font-size: .9em;
     color: #3AAC59;
 }
 
+element.style {
+}
+.titulo_zona_horaria {
+    margin: 0;
+}
+p {
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+p {
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+*, ::after, ::before {
+    box-sizing: border-box;
+}
+*, ::after, ::before {
+    box-sizing: border-box;
+}
+user agent stylesheet
+p {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+.buy_contenedor_nombre_pool {
+    text-align: start;
+    color: #004C3F;
+    font-weight: 500;
+    margin-bottom: 2em;
+}
 .buy_contenedor_zona_horaria{
     text-align: start;
     color: #004C3F;
@@ -229,6 +262,9 @@ font-size: .9em;
     width: 13vw;
     font-size: large;
     font-weight: bold;
+}
+.titulo_nombre_pool{
+    margin: 0;
 }
 .titulo_zona_horaria{
     margin: 0;

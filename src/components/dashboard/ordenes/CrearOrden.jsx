@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import SelectZonaHoraria from './../../login/SelectZonaHoraria'
+import SelectNombrepool from '../../login/SelectNombrePool'
 import { withStyles } from '@material-ui/core/styles';
 
 import Slider from '@material-ui/core/Slider';
@@ -34,16 +35,9 @@ const PrettoSlider = withStyles({
     },
 })(Slider);
 function CrearOrden({ precio, settoPago, datos, setdatos, setshowModalCarga }) {
-
-
-
-
    
     const [errorFarmerKey, seterrorFarmerKey] = useState(null)
     const [errorPullkey, seterrorPullkey] = useState(null)
-
-
-
 
     const actualizarDatos = (e) => {
         setdatos({
@@ -66,7 +60,6 @@ function CrearOrden({ precio, settoPago, datos, setdatos, setshowModalCarga }) {
             correcto = false
         }
         if (correcto) {
-            alert("todo correcto")
             setshowModalCarga(true)
         }
     }
@@ -78,7 +71,6 @@ function CrearOrden({ precio, settoPago, datos, setdatos, setshowModalCarga }) {
             numeroPlots: numero
         })
 
-        console.log(datos.numeroPlots)
     }
 
     return (
@@ -127,10 +119,10 @@ function CrearOrden({ precio, settoPago, datos, setdatos, setshowModalCarga }) {
 
                         <div >
                             <p className="buy_titulo_slider">Number of plots to buy*</p>
-                            <PrettoSlider valueLabelDisplay="auto" aria-label="pretto slider" onChange={(e, n) => { calularSubtotal(n) }} defaultValue={5} min={5} />
+                            <PrettoSlider valueLabelDisplay="auto" aria-label="pretto slider" onChange={(e, n) => { calularSubtotal(n) }} defaultValue={5} min={5} max={20} />
                             <div className="buy_contenedor_indicadores">
                                 <p className="buy_indicador">Min 5</p>
-                                <p className="buy_indicador">Max 60</p>
+                                <p className="buy_indicador">Max 20</p>
                             </div>
                         </div>
                         <div className="contenedor_price">
@@ -141,10 +133,16 @@ function CrearOrden({ precio, settoPago, datos, setdatos, setshowModalCarga }) {
                                 {datos.subtotal} USD
                          </p>
                         </div>
+                        
+                        <div className="buy_contenedor_nombre_pool">
+                            <p className="titulo_nombre_pool">Nombre de la pool</p>
+                            <SelectNombrepool classname="compra_input_select" setNombrepool={actualizarDatos} />
+                            <small id="emailHelp" className="form-text text-muted descripcion_compra_input"></small>
+                        </div>
 
                         <div className="buy_contenedor_zona_horaria">
                             <p className="titulo_zona_horaria">Download server</p>
-                            <SelectZonaHoraria classname="compra_input_select" zonaHorario={datos.zonahoraria} setzonahoraria={actualizarDatos} />
+                            <SelectZonaHoraria classname="compra_input_select" setzonahoraria={actualizarDatos} />
                             <small id="emailHelp" className="form-text text-muted descripcion_compra_input">Choose a destination close to you, the closer the destination the faster your download will (usually) be.</small>
                         </div>
 

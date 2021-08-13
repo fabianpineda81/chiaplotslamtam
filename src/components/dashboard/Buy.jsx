@@ -8,10 +8,6 @@ import ModalCarga from './ModalCarga';
 import { Fragment } from 'react';
 import ModalConfirmarCompra from './ModalConfirmarCompra';
 
-
-
-
-
 function Buy({user,setop}) {
    
     const [showModalCarga, setshowModalCarga] = useState(false)
@@ -20,13 +16,13 @@ function Buy({user,setop}) {
 
     const [porcentajeCarga, setporcentajeCarga] = useState(0)
     const precio=6;
-    
-    
+
     const [datos, setdatos] = useState({
         farmerKey:"",
         pullKey:"",
         subtotal:30,
         zonaHoraria:"bogota",
+        nombrePool:"(OP)  ihpool.com",
         linkArchivo:"",
         numeroPlots:5,
         userEmail:user.email,
@@ -60,15 +56,11 @@ function Buy({user,setop}) {
         console.log("tarea enviada",data.id)
         setporcentajeCarga(100)
         
-
         } catch (error) {
             console.log(error)
         }
         
     }
-    
-    
-
     
     return (
 

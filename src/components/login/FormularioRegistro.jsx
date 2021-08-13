@@ -1,8 +1,11 @@
+/* eslint-disable react/jsx-no-undef */
 import React, {  useCallback, useState } from 'react'
 import SelectZonaHoraria from './SelectZonaHoraria'
+import SelectNombrePool from './SelectNombrePool'
 
 import {auth,db} from './../../Firebase'
 import { useHistory } from 'react-router'
+//import SelectNombrePool from './SelectNombrePool'
 
 function FormularioRegistro({login,setlogin}) {
     const [errorContraseña, seterrorContraseña] = useState(null)
@@ -11,6 +14,7 @@ function FormularioRegistro({login,setlogin}) {
     const [contra, setcontra] = useState("")
     const [contra2, setcontra2] = useState("")
     const [zonahoraria, setzonahoraria] = useState("Bogota")
+    const [nombrepool, setnombrepool] = useState("ihpool")
     const history= useHistory()
     const [error, seterror] = useState(null)
     
@@ -50,7 +54,8 @@ function FormularioRegistro({login,setlogin}) {
                 await db.collection("usuarios").doc(res.user.email).set({
                     email:res.user.email,
                     uid:res.user.uid,
-                    zonaHorario:zonahoraria
+                    zonaHorario:zonahoraria,
+                    nombrePool:nombrepool
                 }) 
                 console.log("informacion","usuario"+correo+"contraseña"+contra)
 
@@ -61,7 +66,7 @@ function FormularioRegistro({login,setlogin}) {
                 seterror(error.message)
             }
         }
-    ,[correo,contra,history,zonahoraria])
+    ,[correo,contra,history,zonahoraria,nombrepool])
 
 
 
@@ -92,6 +97,7 @@ function FormularioRegistro({login,setlogin}) {
 
                 </div>
                 <SelectZonaHoraria zonaHorario={zonahoraria}  setzonahoraria={setzonahoraria}/>
+                <SelectNombrePool nombrePool={nombrepool}  setnombrepool={setnombrepool}/>
 
                 <div className="form-floating mb-3">
                     <input 

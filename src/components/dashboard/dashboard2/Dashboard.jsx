@@ -21,9 +21,6 @@ function Dashboard({administracion,ordenesAdmin,buscarOrdenesAdmin}) {
     const history = useHistory()
     const [op, setop] = useState("buy")
     
-
-   
-   
     const filtrarOrdenes = useCallback(
         () => {
 
@@ -51,27 +48,20 @@ function Dashboard({administracion,ordenesAdmin,buscarOrdenesAdmin}) {
         }
         , [ordenesAdmin])
 
-
-    
-    
     const buscarOrdenes= useCallback(async(currectUser)=>{
         try {
             let resOrdenes=await db.collection("usuarios").doc(currectUser.email).collection("ordenes").get()
             setuser(currectUser)
+            
             if(resOrdenes.docs[0]!==undefined){
-                
-    
+
                 let arrayOrder= resOrdenes.docs.map((orden)=>{
                     return ({id:orden.id,...orden.data()})
                 })
                  actualizarOrdenes(arrayOrder)
-
-               
-
             }else{
                 setordenes([])
                 actualizarOrdenes([])
-
             }
             
         } catch (error) {
@@ -79,14 +69,12 @@ function Dashboard({administracion,ordenesAdmin,buscarOrdenesAdmin}) {
         }
     },[setordenes]) 
 
-    
     const buscarOrdenes1=useCallback( (currectUser)=>{
         if(administracion===false){
 
             db.collection("usuarios").doc(auth.currentUser.email).collection("ordenes")
             .onSnapshot( (doc) => {
                 buscarOrdenes(currectUser)
-                
             } )
             
         }else{
@@ -95,23 +83,15 @@ function Dashboard({administracion,ordenesAdmin,buscarOrdenesAdmin}) {
         setuser(currectUser)
     },[buscarOrdenes,administracion,filtrarOrdenes])
     
-
-
-    
     const actualizarOrdenes=(arrayOrder)=>{
        
         let arrayOrdenesPendientes= arrayOrder.filter(orden=>orden.codigoEstado===0)
         let arrayOrdenesListas= arrayOrder.filter(orden=>orden.codigoEstado===1)
         arrayOrdenesListas!==undefined?(setordenesListas(arrayOrdenesListas)):(setordenesListas([]))
         arrayOrdenesPendientes!==undefined?(setordenesPendientes(arrayOrdenesPendientes)):(setordenesPendientes([]))
-        
-        
         setordenes(arrayOrder)
+
     }
-
-     
-    
-
 
     useEffect( () => {
         const currectUser= auth.currentUser
@@ -124,7 +104,6 @@ function Dashboard({administracion,ordenesAdmin,buscarOrdenesAdmin}) {
         }
     }, [history,buscarOrdenes1,filtrarOrdenes])
 
-    
     const logOut = () => {
         auth.signOut();
         history.push("/")
@@ -174,8 +153,6 @@ function Dashboard({administracion,ordenesAdmin,buscarOrdenesAdmin}) {
                     op={op} />
                 </div>
                 </div>
-          
-
         </div>
     ) : (<h1>cargando</h1>)
 }
