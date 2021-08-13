@@ -3,7 +3,7 @@ import React from 'react'
 function SelectNombrePool({Nombrepool,setNombrepool,classname}) {
     return (
         
-        <select name="nombrePool" className={`form-select mb-3  ${classname}`}  placeholder="Time zone" onChange={setNombrepool} ><option value="" label=" "></option>
+        <select name="nombrePool" className={`form-select mb-3  ${classname}`}  placeholder="Select Pool" onChange={setNombrepool} ><option value="" label=" "></option>
         <option value=" pool.space">(OP)  pool.space</option>
         <option value=" huobipool.com">  huobipool.com</option>
         <option value=" copool.com">  copool.com</option>
