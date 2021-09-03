@@ -1,13 +1,16 @@
 import React, { useEffect, useCallback, useState } from 'react'
+import { Fragment } from 'react'
 import { useHistory } from 'react-router'
 import { auth, db } from '../../Firebase'
 import Dashboard from '../dashboard/dashboard2/Dashboard'
+import Spinner from '../Spinner'
 
 
 
 function Administracion() {
     const [ordenes, setordenes] = useState(null)
     const history = useHistory()
+    const [spinner, setspinner] = useState(true)
     const buscarInformacionUsuario = async () => {
         try {
             let usuario = await db.collection("usuarios").doc(auth.currentUser.email).get()
@@ -38,7 +41,7 @@ function Administracion() {
    
 
     const buscarOrdenes = useCallback( async () => {
-       
+       setspinner(true)
 
         const data = await db.collection("usuarios").get()
         
@@ -46,7 +49,7 @@ function Administracion() {
             console.log(doc.id)
 
             let resultadoUsario = await buscarOrdenesUsuario(doc)
-
+                setspinner(false)
             if (resultadoUsario !== null) {
                 
                 return resultadoUsario
@@ -78,8 +81,9 @@ function Administracion() {
 
             async function hola() {
                 if (auth.currentUser) {
+                    setspinner(true)
                     const informacionUsuario = await buscarInformacionUsuario()
-                    console.log(informacionUsuario)
+                    console.log("informacion usuario",informacionUsuario)
                     if (informacionUsuario.rol === 1) {
                         console.log("es administrador")
                         buscarOrdenes()
@@ -105,7 +109,10 @@ function Administracion() {
 
 
     return ordenes !== null ? (
-        <Dashboard administracion={true} ordenesAdmin={ordenes} buscarOrdenesAdmin={buscarOrdenes}/>
+        <Fragment>
+            <Spinner spinner={spinner}/>
+            <Dashboard administracion={true} ordenesAdmin={ordenes} buscarOrdenesAdmin={buscarOrdenes}/>
+        </Fragment>
            
     ) :
         (<h1>Cargando</h1>)

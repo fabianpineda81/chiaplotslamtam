@@ -1,4 +1,58 @@
+@font-face {
+    font-family: 'icomoon';
+    src:  url('../fonts/icomoon.eot?oigmaa');
+    src:  url('../fonts/icomoon.eot?oigmaa#iefix') format('embedded-opentype'),
+      url('../fonts/icomoon.ttf?oigmaa') format('truetype'),
+      url('../fonts/icomoon.woff?oigmaa') format('woff'),
+      url('../fonts/icomoon.svg?oigmaa#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+  }
+  
+  [class^="icon-"], [class*=" icon-"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'icomoon' !important;
+    speak: never;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+  
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
 
+  .icon-menu:before {
+    content: "\e900";
+  }
+  .burger-button{
+      
+    display: none;
+    width: 40px;
+    height: 5.5vh; 
+    border-radius: 50%; 
+    
+    /*
+    display: flex;
+    justify-content: center;
+    align-items: center; */
+    
+    /* esto sirve para centrar los texto de manera vertical  */
+    line-height: 5vh;
+    /* esto sirve para alinear el texto  */
+    text-align: center;
+    position: fixed;
+    z-index: 6;
+    left: 5px;
+    top: 2.5vh;
+    
+    color:#3AAC59;
+    
+
+}
 
  @font-face{
      font-family: "Montserrat";
@@ -110,4 +164,26 @@ a{
     border: none;
     cursor: pointer;
     
+    
+}
+.spiner{
+    position: absolute;
+    top:50%
+}
+
+.contenedor_spiner{
+    top: 0;
+    left: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+}
+.spiner{
+    position: absolute;
+    top: 50%;
+}
+
+.display_none{
+    display: none;
 }

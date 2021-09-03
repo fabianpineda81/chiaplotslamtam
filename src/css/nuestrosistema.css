@@ -28,7 +28,7 @@
     min-height:150px ;
     transition: .5s;
     
-    height: 30vh;
+    height: 100%;
 }
 .instruccion_titulo{
     color: #004C3F;
@@ -46,7 +46,8 @@
 .nuestro_sistema_contenedor_carrusel{
    position: relative;  
    min-height:250px ;
-   height: 40vh;
+   height: 30vh;
+   margin-bottom: 5vh;
    
 }
 
@@ -88,6 +89,42 @@
 .botones_carrusel{
     border-radius: 90%;
 }
+
+@media screen and (max-width:758px) {
+    .nuestro_sistema_contenedor_carrusel{
+        height: 40vh;
+    }
+
+    .contenedor_bototes_carrusel{
+        width: 50%;
+    }
+}
+
+
+@media screen and (max-width:480px) {
+    .nuestro_sistema_contenedor_carrusel{
+        position: initial;
+        overflow: hidden;
+        height: auto;
+        margin-bottom: 0;
+    }
+    .contenedor_instruccion{
+        position: initial;
+        height: auto;
+        width: 100%;
+        margin-bottom: 2em;     
+    }
+    .contenedor_bototes_carrusel{
+     display: none ;
+    }
+
+    .nuestro_sistema_contenedor_titulo{
+        width: 100%;
+        margin-bottom: 2em;
+    }
+
+
+}       
 
 
 

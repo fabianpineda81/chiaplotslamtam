@@ -9,14 +9,14 @@ function MostradorOrdenesAdmin({ordenes,ordenPendiente,ordenNueva,ordenBajar,bus
     const [ordenActual, setordenActual] = useState(null)
 
     const bajarOrden=async()=>{
+        buscarOrdenesAdmin()
         await db.collection("usuarios").doc(ordenActual.userEmail).collection("ordenes").doc(ordenActual.id).update({
             linkParcela:null,
             codigoEstado:3,
             estado:"bajada"
 
         })
-        alert("bajado correctamente")
-        buscarOrdenesAdmin()
+        
         volver()
     }
 
@@ -60,7 +60,8 @@ function MostradorOrdenesAdmin({ordenes,ordenPendiente,ordenNueva,ordenBajar,bus
                     ordenBajar={ordenBajar} 
                     ordenPendiente={ordenPendiente}  
                     orden={ordenActual}
-                    bajarOrden={bajarOrden}/>
+                    bajarOrden={bajarOrden} 
+                    buscarOrdenesAdmin={buscarOrdenesAdmin}/>
                 )
                     
             }

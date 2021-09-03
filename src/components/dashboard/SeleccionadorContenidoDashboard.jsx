@@ -30,7 +30,7 @@ function SeleccionadorContenidoDashboard({op,user,ordenes,ordenesListas,ordenesP
              return <AdminOrdenesListas ordenes={ordenesListas}/>
          case "admin_ordenes_pendientes":
              
-             return <AdminOrdenesPendientes ordenes={ordenesPendientes}/>
+             return <AdminOrdenesPendientes ordenes={ordenesPendientes} buscarOrdenesAdmin={buscarOrdenesAdmin}/>
              case "admin_ordenes_nuevas":
              
                 return <AdminOrdenesNuevas ordenes={ordenesNuevas}/>

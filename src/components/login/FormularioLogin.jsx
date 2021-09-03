@@ -27,7 +27,7 @@ function FormularioLogin({ setlogin, login }) {
     }
 
     const validadLogin=useCallback(async()=>{
-        alert("hola")
+       // alert("hola")
         try {
            await auth.signInWithEmailAndPassword(correo,contraseña)
            history.push("/dashboard")

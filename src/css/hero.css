@@ -42,3 +42,40 @@
     margin-top: 7vh;
     
 }
+
+@media screen and (max-width:758px) {
+    .hero_descripcion_texto{
+        width: 100%;
+    }
+    .contenedor_hero_descripcion {
+        margin-top: 2em;
+    }
+
+    .hero{
+        margin-bottom: 2em;
+    }
+    
+    .texto_hero{
+        width: 100%;
+        
+    }
+    .contenedor_imagen_hero{
+        width: 100%;
+    }
+    .imagen_hero{
+        margin-top: 2em;
+        width: 50%;
+    }
+    .titulo_carrusel{
+        font-size: 2em;
+    }
+    
+
+}
+@media screen and (max-width:480px) {
+    .contenedor_hero{
+        display: initial;
+    }
+}
+
+

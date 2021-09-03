@@ -63,3 +63,10 @@
     
 }
 
+@media screen and (max-width:480px) {
+    .precio{
+        width: 70%;
+        padding: 1em;
+    }
+}
+

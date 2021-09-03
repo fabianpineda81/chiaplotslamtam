@@ -5,6 +5,12 @@
     
 
 }
+.contenedor_menu_header{
+    width: 65%;
+    display: flex;
+    justify-content: space-between;
+    height: inherit;
+}
 
 .header a{
     height: 100%;
@@ -51,11 +57,99 @@ header a {
 }
 
 .logo{
-    font-size: 1.5em;
+    font-size: 1.2em;
     font-weight: 900;
     color: #3AAC59;
 
 }
+
+/* aca empieza el responsive  */
+@media screen and (max-width:758px) {
+    .contenedor {
+        width: 90%;
+    }
+    .header{
+        display: block;
+        position: fixed;
+        height: 10vh;
+        background-color: #fff;
+        width: 100%;
+        top: 0;
+        
+        z-index: 99;
+        
+        
+    }
+    .logo{
+        
+        justify-content: center;
+    }
+    .contenedor_menu_header{
+        flex-direction: column;
+        position: fixed;
+         
+        height: 90vh;
+        width: 100vw;
+        left: -100vw;
+        background-color: #3AAC59;
+        background-color: rgba(8, 58, 21, 0.5);
+        justify-content: center;
+        align-items: center;
+        transition: .5s;
+
+    }
+    .contenedor_menu_header_active{
+        left: -0vw;
+    }
+    
+
+
+    .menu{
+        height: auto;
+        
+        display: flex;
+        justify-content: center;
+        
+    }
+    .menu li{
+        margin:3vh 0;
+        font-size: 1.5em;
+        width: 30vw;
+        
+
+    }
+    .botones_pagina_header{
+        justify-content: center;
+    }
+    .header a {
+        justify-content: center;
+    }
+    .header ol{
+        display: block;
+        padding: 0;
+        
+    }
+    .link_header{
+        color: white;
+    }
+
+     .burger-button{
+            display: block;
+    }
+}
+
+@media screen and (max-width:480px) {
+    .menu li{
+        margin:3vh 0;
+        font-size: 1.3em;
+        width: 40vw;
+        
+
+    }
+}
+
+
+
 
 
 

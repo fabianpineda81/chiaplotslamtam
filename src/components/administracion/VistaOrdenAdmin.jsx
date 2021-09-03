@@ -7,12 +7,13 @@ import {db} from './../../Firebase'
 
 
 
-function VistaOrdenAdmin({ orden, mostrarOrden, volver, ordenPendiente,ordenBajar,bajarOrden }) {
+function VistaOrdenAdmin({ orden, mostrarOrden, volver, ordenPendiente,ordenBajar,bajarOrden,buscarOrdenesAdmin }) {
     const [terminarOrden, setterminarOrden] = useState(false)
     
     const CompletarOrden=async(link)=>{
         
       try {
+        buscarOrdenesAdmin()
         await db.collection("usuarios").doc(orden.userEmail).collection("ordenes").doc(orden.id).update({
             codigoEstado:1,
             linkParcela:link,
@@ -20,6 +21,8 @@ function VistaOrdenAdmin({ orden, mostrarOrden, volver, ordenPendiente,ordenBaja
             fecha_entrega:Date.now(),
             estato:"entragada"
         })  
+        
+        
         volver()
 
       } catch (error) {
